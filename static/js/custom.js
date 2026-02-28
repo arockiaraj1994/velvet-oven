@@ -1,6 +1,80 @@
 (function () {
   'use strict';
 
+  // Gold particle animation for hero section
+  var canvas = document.querySelector('.hero-particles');
+  if (canvas) {
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var particleCount = 45;
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + Math.random() * 20,
+        size: Math.random() * 2 + 0.5,
+        speedY: -(Math.random() * 0.4 + 0.15),
+        speedX: (Math.random() - 0.5) * 0.3,
+        opacity: 0,
+        maxOpacity: Math.random() * 0.5 + 0.15,
+        fadeIn: true,
+        life: 0,
+        maxLife: Math.random() * 400 + 300
+      };
+    }
+
+    for (var i = 0; i < particleCount; i++) {
+      var p = createParticle();
+      p.y = Math.random() * canvas.height;
+      p.life = Math.random() * p.maxLife;
+      p.opacity = p.maxOpacity * 0.5;
+      p.fadeIn = false;
+      particles.push(p);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (var j = 0; j < particles.length; j++) {
+        var pt = particles[j];
+        pt.x += pt.speedX;
+        pt.y += pt.speedY;
+        pt.life++;
+
+        if (pt.fadeIn && pt.opacity < pt.maxOpacity) {
+          pt.opacity += 0.005;
+          if (pt.opacity >= pt.maxOpacity) pt.fadeIn = false;
+        }
+
+        if (pt.life > pt.maxLife * 0.7) {
+          pt.opacity -= 0.003;
+        }
+
+        if (pt.opacity <= 0 || pt.y < -10) {
+          particles[j] = createParticle();
+          particles[j].fadeIn = true;
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(201, 168, 76, ' + pt.opacity + ')';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  }
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
