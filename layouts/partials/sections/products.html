@@ -1,0 +1,23 @@
+<section id="products" class="section-products">
+  <div class="container">
+    <h2 class="section-heading">Our Creations</h2>
+    <div class="products-grid">
+      {{ $products := where .Site.RegularPages "Section" "products" }}
+      {{ range sort $products ".Params.weight" }}
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Params.description }}</p>
+          <a href="https://ig.me/m/{{ $.Site.Params.instagram.handle }}"
+             class="btn-order" target="_blank" rel="noopener">
+            Order on Instagram
+          </a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

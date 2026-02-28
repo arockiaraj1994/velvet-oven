@@ -1,0 +1,19 @@
+{{ define "body_classes" }}page-home{{ end }}
+
+{{ define "main" }}
+
+{{ partial "sections/hero.html" . }}
+{{ partial "sections/brand-story.html" . }}
+{{ partial "sections/products.html" . }}
+{{/* {{ partial "sections/corporate-gifting.html" . }} */}}
+{{/* {{ partial "sections/reviews.html" . }} */}}
+{{/* {{ partial "sections/blog.html" . }} */}}
+{{/* {{ partial "sections/instagram.html" . }} */}}
+{{ partial "sections/contact.html" . }}
+{{ partial "instagram-float.html" . }}
+
+{{ end }}
+
+{{ define "footer_js" }}
+<script src="/js/custom.js"></script>
+{{ end }}

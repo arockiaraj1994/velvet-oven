@@ -1,0 +1,821 @@
+// ============================================
+// Velvet Oven — Brand Styles
+// ============================================
+
+// Brand colors
+$color-black: #0a0a0a;
+$color-deep: #111111;
+$color-velvet: #2a0a1a;
+$color-burgundy: #4a1020;
+$color-gold: #c9a84c;
+$color-gold-light: #e8c97a;
+$color-cream: #f5f0e8;
+$color-brown: #3a2010;
+
+// Typography
+$font-heading: 'Cinzel', serif;
+$font-body: 'Raleway', sans-serif;
+$font-tagline: 'Cormorant Garamond', serif;
+
+// Global
+html {
+  scroll-behavior: smooth;
+}
+
+body.page-home {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// Override theme header for dark branding
+.header {
+  background: $color-black;
+  border-bottom: 1px solid rgba($color-gold, 0.15);
+
+  a {
+    color: $color-cream !important;
+
+    &:hover {
+      color: $color-gold !important;
+    }
+  }
+}
+
+.logo img {
+  filter: none;
+}
+
+.main-menu ul li a {
+  color: $color-cream !important;
+  font-family: $font-body;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  &:hover {
+    color: $color-gold !important;
+  }
+}
+
+// Section heading style
+.section-heading {
+  font-family: $font-heading;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 56px;
+  }
+}
+
+// ============================================
+// Section 1: Hero
+// ============================================
+.section-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $color-black;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba($color-gold, 0.03) 0%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba($color-gold, 0.01) 2px,
+      rgba($color-gold, 0.01) 4px
+    );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo img {
+  width: 360px;
+  height: auto;
+  margin-bottom: 24px;
+
+  @media (min-width: 768px) {
+    width: 550px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 650px;
+  }
+}
+
+.hero-tagline {
+  font-family: $font-tagline;
+  font-style: italic;
+  color: $color-gold;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 2px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $color-gold;
+  opacity: 0.6;
+  animation: bounceArrow 2s ease-in-out infinite;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+// ============================================
+// Section 2: Brand Story
+// ============================================
+.section-story {
+  background: $color-cream;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-brown;
+  }
+}
+
+.spoon-divider {
+  text-align: center;
+  color: $color-gold;
+  margin-bottom: 40px;
+  opacity: 0.7;
+}
+
+.story-text {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+
+  p {
+    font-family: $font-body;
+    font-weight: 300;
+    color: $color-brown;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+}
+
+// ============================================
+// Section 3: Products
+// ============================================
+.section-products {
+  background: $color-deep;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-cream;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba($color-gold, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-gold;
+    box-shadow: 0 0 30px rgba($color-gold, 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+.product-image {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.product-info {
+  padding: 24px;
+  text-align: center;
+
+  h3 {
+    font-family: $font-heading;
+    color: $color-cream;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-family: $font-body;
+    color: rgba($color-cream, 0.7);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+}
+
+.btn-order {
+  display: inline-block;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid $color-gold;
+  color: $color-gold;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-gold;
+    color: $color-black;
+  }
+}
+
+// ============================================
+// Section 4: Corporate Gifting
+// ============================================
+.section-corporate {
+  background: $color-cream;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-brown;
+  }
+}
+
+.corporate-benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 64px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
+
+.benefit {
+  text-align: center;
+
+  .benefit-icon {
+    color: $color-gold;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-family: $font-heading;
+    color: $color-brown;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-family: $font-body;
+    color: $color-brown;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+.corporate-form-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+
+  h3 {
+    font-family: $font-heading;
+    color: $color-brown;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+}
+
+.corporate-form {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: white;
+    border: 1px solid rgba($color-brown, 0.2);
+    border-radius: 4px;
+    font-family: $font-body;
+    font-size: 14px;
+    font-weight: 300;
+    color: $color-brown;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: rgba($color-brown, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-gold;
+    }
+  }
+
+  textarea {
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+}
+
+.btn-submit {
+  display: inline-block;
+  padding: 14px 48px;
+  background: $color-gold;
+  border: 2px solid $color-gold;
+  color: white;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-gold-light;
+    border-color: $color-gold-light;
+  }
+}
+
+// ============================================
+// Section 5: Reviews
+// ============================================
+.section-reviews {
+  background: $color-deep;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-cream;
+  }
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+.review-card {
+  img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba($color-gold, 0.1);
+  }
+}
+
+.review-text-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba($color-gold, 0.1);
+  border-radius: 8px;
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-quote {
+  font-family: $font-tagline;
+  font-style: italic;
+  color: $color-cream;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.review-author {
+  font-family: $font-body;
+  color: $color-gold;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+// ============================================
+// Section 6: Blog
+// ============================================
+.section-blog {
+  background: $color-cream;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-brown;
+  }
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+.blog-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.blog-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.blog-info {
+  padding: 24px;
+
+  time {
+    font-family: $font-body;
+    color: $color-gold;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-family: $font-heading;
+    color: $color-brown;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 8px 0 12px;
+    line-height: 1.4;
+  }
+
+  p {
+    font-family: $font-body;
+    color: rgba($color-brown, 0.7);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+}
+
+.read-more {
+  font-family: $font-body;
+  color: $color-gold;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+// ============================================
+// Section 7: Instagram
+// ============================================
+.section-instagram {
+  background: $color-black;
+  padding: 80px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
+
+  .section-heading {
+    color: $color-cream;
+
+    a {
+      color: $color-cream;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-gold;
+      }
+    }
+  }
+}
+
+.instagram-subtitle {
+  text-align: center;
+  font-family: $font-tagline;
+  font-style: italic;
+  color: rgba($color-cream, 0.5);
+  font-size: 16px;
+  margin-top: -32px;
+  margin-bottom: 48px;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.instagram-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.instagram-placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba($color-gold, 0.05);
+  border: 1px solid rgba($color-gold, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-body;
+  font-size: 11px;
+  color: rgba($color-cream, 0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+// ============================================
+// Section 8: Contact
+// ============================================
+.section-contact {
+  background: $color-black;
+  padding: 80px 0 40px;
+  border-top: 2px solid $color-gold;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    padding: 120px 0 48px;
+  }
+
+  .section-heading {
+    color: $color-cream;
+  }
+}
+
+.contact-subtitle {
+  font-family: $font-tagline;
+  font-style: italic;
+  color: rgba($color-cream, 0.6);
+  font-size: 16px;
+  margin-top: -24px;
+  margin-bottom: 40px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.btn-instagram-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.3);
+  margin-bottom: 48px;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(225, 48, 108, 0.4);
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 48px;
+
+  a {
+    color: rgba($color-cream, 0.5);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-gold;
+    }
+  }
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba($color-cream, 0.08);
+  padding-top: 24px;
+
+  p {
+    font-family: $font-body;
+    color: rgba($color-cream, 0.3);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+}
+
+// ============================================
+// Instagram Floating Button
+// ============================================
+.instagram-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.4);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// ============================================
+// Scroll Animations
+// ============================================
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// Theme footer override (hide theme defaults on homepage)
+// ============================================
+.page-home {
+  .footer,
+  .sub-footer {
+    display: none;
+  }
+}
+
+// Mobile menu overrides
+.main-menu-mobile {
+  background: $color-black;
+
+  ul li a {
+    color: $color-cream;
+
+    &:hover {
+      color: $color-gold;
+    }
+  }
+}

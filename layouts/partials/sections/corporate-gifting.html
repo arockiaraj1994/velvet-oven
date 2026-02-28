@@ -1,0 +1,61 @@
+<section id="corporate" class="section-corporate">
+  <div class="container">
+    <h2 class="section-heading">Premium Corporate Gifting</h2>
+    <div class="corporate-benefits">
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="1" y="6" width="22" height="15" rx="2"/>
+            <path d="M1 10h22"/>
+            <path d="M12 6v15"/>
+            <path d="M12 6c-2-4-6-4-6 0"/>
+            <path d="M12 6c2-4 6-4 6 0"/>
+          </svg>
+        </div>
+        <h3>Bulk Orders</h3>
+        <p>Custom quantities for teams of any size, from 10 to 10,000 boxes.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 12V8H6a2 2 0 010-4h12V0"/>
+            <path d="M20 12v4H6a2 2 0 000 4h12v4"/>
+            <rect x="2" y="2" width="20" height="20" rx="2"/>
+          </svg>
+        </div>
+        <h3>Custom Packaging</h3>
+        <p>Branded gift boxes with your company logo and personalised messages.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>Pan-India Delivery</h3>
+        <p>Reliable delivery across India, timed perfectly for your event.</p>
+      </div>
+    </div>
+
+    <div class="corporate-form-wrapper">
+      <h3>Enquire Now</h3>
+      <form action="https://formspree.io/f/{{ .Site.Params.formspree.form_id }}" method="POST" class="corporate-form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="text" name="company" placeholder="Company Name" required>
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="form-row">
+          <input type="number" name="quantity" placeholder="Quantity Needed" min="1">
+          <input type="date" name="date" placeholder="Event / Occasion Date">
+        </div>
+        <textarea name="message" placeholder="Special requirements or message" rows="4"></textarea>
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>

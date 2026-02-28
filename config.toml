@@ -1,0 +1,84 @@
+baseURL = "/"
+themesDir = "themes"
+theme = "hugo-serif-theme"
+languageCode = "en-us"
+title = "Velvet Oven | Premium Homemade Desserts Chennai"
+
+[module]
+  [module.hugoVersion]
+  extended = true
+  min = "0.55.0"
+
+[params]
+  google_analytics_id = ""
+  google_tag_manager_id = ""
+  favicon = "favicon.svg"
+  description = "Premium homemade desserts — Brownies, Cakes & Ice Cream. Crafted for the finest moments. Corporate gifting available."
+
+  [params.homepage]
+  sticky_header = true
+  show_contact_box = false
+  show_services_button = false
+
+  [params.logo]
+  mobile = "images/logo_white.png"
+  mobile_height = "40px"
+  desktop = "images/logo_white.png"
+  desktop_height = "48px"
+  alt = "Velvet Oven — Premium Homemade Desserts"
+
+  [params.fonts]
+  google_fonts = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Raleway:wght@200;300;400;500;600&display=swap'
+  heading = "Cinzel"
+  base = "Raleway"
+
+  [params.colors]
+  primary = "#c9a84c"
+  black = "#0a0a0a"
+  white = "#f5f0e8"
+  white_offset = "#ebe5d8"
+  grey = "#5C5A5A"
+
+  [params.seo]
+  meta_twitter_site = "@velvetoven"
+  meta_twitter_creator = "@velvetoven"
+  meta_og_image = "/images/og-image.jpg"
+
+  [params.footer]
+  copyright_text = '© 2025 Velvet Oven. All rights reserved.'
+
+  [params.whatsapp]
+  number = "91XXXXXXXXXX"
+  message = "Hi Velvet Oven! I want to order"
+
+  [params.instagram]
+  handle = "velvet_oven_bakes"
+
+  [params.formspree]
+  form_id = "YOUR_FORM_ID"
+
+[menu]
+  [[menu.main]]
+  name = "Home"
+  url = "/#hero"
+  weight = 1
+
+  [[menu.main]]
+  name = "Products"
+  url = "/#products"
+  weight = 2
+
+  [[menu.main]]
+  name = "Contact"
+  url = "/#contact"
+  weight = 3
+
+  [[menu.footer]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+  [[menu.footer]]
+  name = "Contact"
+  url = "/#contact"
+  weight = 2

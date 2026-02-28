@@ -1,0 +1,19 @@
+<section id="reviews" class="section-reviews">
+  <div class="container">
+    <h2 class="section-heading">What our customers say</h2>
+    <div class="reviews-grid">
+      {{ range .Site.Data.reviews }}
+      <div class="review-card">
+        {{ if .image }}
+        <img src="{{ .image }}" alt="Review from {{ .name }}" loading="lazy">
+        {{ else }}
+        <div class="review-text-card">
+          <p class="review-quote">"{{ .text }}"</p>
+          <span class="review-author">— {{ .name }}</span>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

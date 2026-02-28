@@ -1,0 +1,23 @@
+<section id="blog" class="section-blog">
+  <div class="container">
+    <h2 class="section-heading">From our kitchen</h2>
+    <div class="blog-grid">
+      {{ $posts := where .Site.RegularPages "Section" "blog" }}
+      {{ range first 3 (sort $posts ".Date" "desc") }}
+      <a href="{{ .RelPermalink }}" class="blog-card">
+        {{ if .Params.image }}
+        <div class="blog-image">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="blog-info">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Params.description }}</p>
+          <span class="read-more">Read more &rarr;</span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
