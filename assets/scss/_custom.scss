@@ -203,6 +203,34 @@ body.page-home {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+.hero-feedback {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 12px 32px;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: rgba($color-cream, 0.7);
+  text-decoration: none;
+  border: 1px solid rgba($color-cream, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  animation: taglineEntrance 1s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+  opacity: 0;
+
+  &:hover {
+    color: $color-cream;
+    border-color: $color-gold;
+    background: rgba($color-gold, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+}
+
 .scroll-arrow {
   position: absolute;
   bottom: 40px;
