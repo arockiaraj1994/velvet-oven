@@ -23,7 +23,7 @@
         speedY: -(Math.random() * 0.4 + 0.15),
         speedX: (Math.random() - 0.5) * 0.3,
         opacity: 0,
-        maxOpacity: Math.random() * 0.5 + 0.15,
+        maxOpacity: Math.random() * 0.6 + 0.3,
         fadeIn: true,
         life: 0,
         maxLife: Math.random() * 400 + 300
@@ -65,7 +65,7 @@
 
         ctx.beginPath();
         ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(201, 168, 76, ' + pt.opacity + ')';
+        ctx.fillStyle = 'rgba(200, 210, 225, ' + pt.opacity + ')';
         ctx.fill();
       }
 
