@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://velvetoven.co.in/"
 themesDir = "themes"
 theme = "hugo-serif-theme"
 languageCode = "en-us"
