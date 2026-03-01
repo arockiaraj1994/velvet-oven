@@ -4,14 +4,27 @@
     <div class="reviews-grid">
       {{ range .Site.Data.reviews }}
       <div class="review-card">
-        {{ if .image }}
-        <img src="{{ .image }}" alt="Review from {{ .name }}" loading="lazy">
-        {{ else }}
         <div class="review-text-card">
+          <span class="review-product">{{ .product }}</span>
+          <div class="review-ratings">
+            <div class="review-rating-row">
+              <span class="review-rating-label">Taste</span>
+              <span class="review-stars">{{ strings.Repeat .taste "★" }}{{ strings.Repeat (sub 5 .taste) "☆" }}</span>
+            </div>
+            <div class="review-rating-row">
+              <span class="review-rating-label">Packaging</span>
+              <span class="review-stars">{{ strings.Repeat .packaging "★" }}{{ strings.Repeat (sub 5 .packaging) "☆" }}</span>
+            </div>
+            <div class="review-rating-row">
+              <span class="review-rating-label">Value</span>
+              <span class="review-stars">{{ strings.Repeat .value "★" }}{{ strings.Repeat (sub 5 .value) "☆" }}</span>
+            </div>
+          </div>
+          {{ if .text }}
           <p class="review-quote">"{{ .text }}"</p>
+          {{ end }}
           <span class="review-author">— {{ .name }}</span>
         </div>
-        {{ end }}
       </div>
       {{ end }}
     </div>

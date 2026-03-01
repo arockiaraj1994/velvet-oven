@@ -649,7 +649,7 @@ body.page-home {
   gap: 24px;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
 }
@@ -670,7 +670,49 @@ body.page-home {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.review-ratings {
+  margin-bottom: 16px;
+}
+
+.review-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.review-rating-label {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.5);
+  min-width: 75px;
+}
+
+.review-stars {
+  font-size: 16px;
+  color: $color-gold;
+  letter-spacing: 2px;
+}
+
+.review-product {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-gold;
+  background: rgba($color-gold, 0.08);
+  border: 1px solid rgba($color-gold, 0.15);
+  border-radius: 4px;
+  padding: 4px 12px;
+  margin-bottom: 20px;
+  align-self: flex-start;
 }
 
 .review-quote {
@@ -680,6 +722,7 @@ body.page-home {
   font-size: 17px;
   line-height: 1.7;
   margin-bottom: 20px;
+  flex: 1;
 }
 
 .review-author {
@@ -688,6 +731,7 @@ body.page-home {
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1px;
+  margin-top: auto;
 }
 
 // ============================================

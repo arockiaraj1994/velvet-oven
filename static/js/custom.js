@@ -100,6 +100,19 @@
     });
   });
 
+  // Close mobile menu when a nav link is clicked
+  var mobileMenu = document.querySelector('#main-menu-mobile');
+  var menuToggle = document.querySelector('#toggle-main-menu-mobile');
+  if (mobileMenu && menuToggle) {
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        menuToggle.classList.remove('is-active');
+        document.body.classList.remove('lock-scroll');
+      });
+    });
+  }
+
   // Scroll-triggered fade-in animations
   var fadeElements = document.querySelectorAll(
     '.section-story .container,' +
@@ -138,21 +151,6 @@
     });
   }
 
-  // Mobile review carousel — horizontal touch swipe
-  var reviewsGrid = document.querySelector('.reviews-grid');
-  if (reviewsGrid && window.innerWidth < 768) {
-    reviewsGrid.style.display = 'flex';
-    reviewsGrid.style.overflowX = 'auto';
-    reviewsGrid.style.scrollSnapType = 'x mandatory';
-    reviewsGrid.style.webkitOverflowScrolling = 'touch';
-    reviewsGrid.style.gap = '16px';
-    reviewsGrid.style.paddingBottom = '16px';
-
-    reviewsGrid.querySelectorAll('.review-card').forEach(function (card) {
-      card.style.flex = '0 0 85%';
-      card.style.scrollSnapAlign = 'start';
-    });
-  }
 
   // Active nav highlight on scroll
   var sections = document.querySelectorAll('section[id]');
