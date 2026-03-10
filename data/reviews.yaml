@@ -25,3 +25,10 @@
   packaging: 5
   value: 5
   text: ""
+
+- name: "Gokul"
+  product: "Egg Sweet"
+  taste: 5
+  packaging: 5
+  value: 5
+  text: "Loved the egg sweet, smooth texture and just the right sweetness."

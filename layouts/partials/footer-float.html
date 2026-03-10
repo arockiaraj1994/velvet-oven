@@ -1,0 +1,8 @@
+<footer class="footer-float" role="contentinfo">
+  <div class="footer-float__content">
+    {{ with .Site.Params.footer.fssai_number }}
+      <span class="footer-float__fssai">FSSAI License No. {{ . }}</span>
+    {{ end }}
+    <span class="footer-float__copyright">{{ .Site.Params.footer.copyright_text }}</span>
+  </div>
+</footer>

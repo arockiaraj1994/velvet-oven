@@ -46,6 +46,7 @@ title = "Velvet Oven | Premium Homemade Desserts Chennai"
 
   [params.footer]
   copyright_text = '© 2025 Velvet Oven. All rights reserved.'
+  fssai_number = "22426076000802"
 
   [params.whatsapp]
   number = "91XXXXXXXXXX"
