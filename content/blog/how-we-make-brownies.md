@@ -10,11 +10,11 @@ Every batch of Velvet Oven brownies starts with a simple belief: great desserts 
 
 ## The Chocolate
 
-We use premium Belgian couverture chocolate — not cocoa powder, not compound chocolate. The real thing. It's what gives our brownies that deep, complex flavour and signature glossy crackle on top.
+We use premium Belgian couverture chocolate, not cocoa powder, not compound chocolate. The real thing. It's what gives our brownies that deep, complex flavour and signature glossy crackle on top.
 
 ## The Process
 
-Our brownies are mixed by hand in small batches. We never use electric mixers for the final fold — overmixing is the enemy of a fudgy brownie. The batter is thick, glossy, and fragrant before it even hits the oven.
+Our brownies are mixed by hand in small batches. We never use electric mixers for the final fold. Overmixing is the enemy of a fudgy brownie. The batter is thick, glossy, and fragrant before it even hits the oven.
 
 ## The Bake
 

@@ -1,5 +1,5 @@
 // ============================================
-// Velvet Oven — Brand Styles
+// Velvet Oven Brand Styles
 // ============================================
 
 // Brand colors
@@ -427,6 +427,10 @@ body.page-home {
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
+  // column layout so the order button can be pinned to the bottom of every
+  // card, keeping the row aligned when one card carries a variety list
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     border-color: $color-gold;
@@ -455,6 +459,9 @@ body.page-home {
 .product-info {
   padding: 24px;
   text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 
   h3 {
     font-family: $font-heading;
@@ -475,8 +482,124 @@ body.page-home {
   }
 }
 
+.product-varieties {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+
+  li {
+    display: flex;
+  }
+}
+
+.variety-chip {
+  padding: 5px 11px;
+  background: transparent;
+  border: 1px solid rgba($color-gold, 0.35);
+  border-radius: 999px;
+  color: rgba($color-cream, 0.85);
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-gold;
+    background: rgba($color-gold, 0.12);
+    color: $color-cream;
+  }
+}
+
+// ---- variety detail popup ----
+.variety-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.variety-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba($color-black, 0.78);
+  backdrop-filter: blur(3px);
+}
+
+.variety-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 28px 28px;
+  background: $color-deep;
+  border: 1px solid rgba($color-gold, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation: varietyPop 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  h4 {
+    font-family: $font-heading;
+    color: $color-gold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-family: $font-body;
+    color: rgba($color-cream, 0.8);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0;
+  }
+}
+
+@keyframes varietyPop {
+  0% { opacity: 0; transform: translateY(12px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.variety-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  padding: 4px 8px;
+  background: transparent;
+  border: 0;
+  color: rgba($color-cream, 0.5);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-gold;
+  }
+}
+
 .btn-order {
   display: inline-block;
+  align-self: center;
+  margin-top: auto;
   padding: 10px 28px;
   background: transparent;
   border: 1px solid $color-gold;

@@ -177,4 +177,45 @@
 
   window.addEventListener('scroll', highlightNav, { passive: true });
   highlightNav();
+
+
+  // Variety detail popup in the Products section
+  var varietyModal = document.getElementById('variety-modal');
+  if (varietyModal) {
+    var varietyTitle = document.getElementById('variety-modal-title');
+    var varietyNote = document.getElementById('variety-modal-note');
+    var lastChip = null;
+
+    function openVariety(chip) {
+      varietyTitle.textContent = chip.getAttribute('data-variety');
+      varietyNote.textContent = chip.getAttribute('data-note');
+      varietyModal.hidden = false;
+      lastChip = chip;
+      varietyModal.querySelector('.variety-modal-close').focus();
+    }
+
+    function closeVariety() {
+      varietyModal.hidden = true;
+      if (lastChip) {
+        lastChip.focus();
+        lastChip = null;
+      }
+    }
+
+    document.querySelectorAll('.variety-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        openVariety(chip);
+      });
+    });
+
+    varietyModal.querySelectorAll('[data-variety-close]').forEach(function (el) {
+      el.addEventListener('click', closeVariety);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !varietyModal.hidden) {
+        closeVariety();
+      }
+    });
+  }
 })();
