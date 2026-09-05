@@ -3,3 +3,6 @@
 .hugo_build.lock
 .DS_Store
 Thumbs.db
+
+# Menu card build inputs (re-downloaded by menu/build.sh)
+/menu/fonts

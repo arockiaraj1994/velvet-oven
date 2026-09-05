@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Velvet Oven Menu</title>
+<style>
+/* __FONTS__ */
+
+/* ============================================
+   Velvet Oven Menu Card :: A4 portrait
+   Palette + type lifted from assets/scss/_custom.scss
+   ============================================ */
+
+:root {
+  --black:       #0a0a0a;
+  --deep:        #111111;
+  --velvet:      #2a0a1a;
+  --burgundy:    #4a1020;
+  --gold:        #c9a84c;
+  --gold-light:  #e8c97a;
+  --cream:       #f5f0e8;
+  --hair:        rgba(201, 168, 76, 0.22);
+
+  --f-head:      'Google Sans', 'Google Sans Text', 'Helvetica Neue', Arial, sans-serif;
+  --f-body:      'Google Sans', 'Google Sans Text', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@page { size: A4 portrait; margin: 0; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 210mm;
+  height: 297mm;
+}
+
+body {
+  font-family: var(--f-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.board {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 82% 6%,  rgba(74, 16, 32, 0.55) 0%, rgba(42, 10, 26, 0.30) 38%, rgba(10, 10, 10, 0) 70%),
+    radial-gradient(90%  70% at 10% 96%, rgba(58, 32, 16, 0.30) 0%, rgba(10, 10, 10, 0) 65%),
+    linear-gradient(160deg, #131113 0%, var(--black) 45%, #0d0b0d 100%);
+}
+
+/* chalkboard grain */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 42mm 42mm;
+  background-repeat: repeat;
+}
+
+/* thin gold frame */
+.frame {
+  position: absolute;
+  inset: 7mm;
+  border: 0.3mm solid var(--hair);
+  pointer-events: none;
+}
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 1.6mm;
+  border: 0.15mm solid rgba(201, 168, 76, 0.12);
+}
+
+.page {
+  position: relative;
+  height: 297mm;
+  padding: 16mm 16mm 17mm;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- header ---------- */
+
+.head {
+  text-align: center;
+}
+
+.head .logo {
+  display: block;
+  width: 70mm;
+  height: auto;
+  margin: 0 auto;
+  fill: var(--cream);
+}
+
+.head .rule {
+  display: block;
+  width: 46mm;
+  height: 0.5mm;
+  margin: 5mm auto 0;
+  background: linear-gradient(90deg, rgba(201, 168, 76, 0), var(--gold) 50%, rgba(201, 168, 76, 0));
+}
+
+
+
+/* ---------- body split: table left, chalk art right ---------- */
+
+.split {
+  display: flex;
+  gap: 8mm;
+  margin-top: 8mm;
+  flex: 1 1 auto;
+}
+
+.col-table { width: 122mm; flex: 0 0 122mm; }
+.col-art   { flex: 1 1 auto; position: relative; }
+
+.category {
+  display: flex;
+  align-items: flex-end;
+}
+
+.category h2 {
+  flex: 1 1 auto;
+  font-family: var(--f-head);
+  font-weight: 600;
+  font-size: 9.6mm;
+  line-height: 1;
+  letter-spacing: 2.2mm;
+  color: var(--gold);
+  text-indent: 2.2mm;
+}
+
+/* same widths as .row .price so the labels sit exactly over their columns */
+.colhead {
+  width: 30mm;
+  flex: 0 0 30mm;
+  text-align: right;
+  padding-bottom: 1.4mm;
+  font-size: 3.2mm;
+  font-weight: 500;
+  letter-spacing: 1.1mm;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.rule-gold {
+  height: 0.45mm;
+  margin-top: 4mm;
+  background: linear-gradient(90deg, var(--gold) 0%, rgba(201, 168, 76, 0.35) 70%, rgba(201, 168, 76, 0.1) 100%);
+}
+
+/* ---------- price rows ---------- */
+
+.rows { margin-top: 2mm; }
+
+.row {
+  display: flex;
+  align-items: baseline;
+  padding: 6mm 0;
+  border-bottom: 0.2mm solid rgba(245, 240, 232, 0.09);
+}
+.row:last-child { border-bottom: 0; }
+
+.row .name {
+  flex: 1 1 auto;
+  font-size: 5.4mm;
+  font-weight: 300;
+  letter-spacing: 0.25mm;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+.row .price {
+  width: 30mm;
+  flex: 0 0 30mm;
+  text-align: right;
+  font-size: 5.4mm;
+  font-weight: 400;
+  letter-spacing: 0.2mm;
+  color: var(--gold-light);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.row .price .cur {
+  font-size: 4mm;
+  font-weight: 300;
+  color: rgba(232, 201, 122, 0.7);
+  margin-right: 0.6mm;
+}
+
+/* ---------- add ons: same table, no box ---------- */
+
+.subhead {
+  margin-top: 9mm;
+  font-family: var(--f-head);
+  font-weight: 700;
+  font-size: 5.2mm;
+  line-height: 1;
+  letter-spacing: 1.8mm;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-indent: 1.8mm;
+}
+
+.rule-thin {
+  height: 0.3mm;
+  margin-top: 3.4mm;
+  background: linear-gradient(90deg, rgba(201, 168, 76, 0.7) 0%, rgba(201, 168, 76, 0.2) 70%, rgba(201, 168, 76, 0.06) 100%);
+}
+
+.row.addon { padding: 4.3mm 0; }
+.row.addon .name { font-size: 4.8mm; }
+.row.addon .price {
+  width: 60mm;
+  flex: 0 0 60mm;
+  font-size: 4.8mm;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  margin-top: 8mm;
+  text-align: center;
+}
+
+.foot .fssai {
+  font-size: 3mm;
+  font-weight: 300;
+  letter-spacing: 1.4mm;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.45);
+  text-indent: 1.4mm;
+}
+
+.foot .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12mm;
+  margin-top: 4.4mm;
+}
+
+.foot .item {
+  display: flex;
+  align-items: center;
+  gap: 2.4mm;
+  font-size: 3.6mm;
+  font-weight: 500;
+  letter-spacing: 0.9mm;
+  color: var(--gold);
+}
+
+.foot .item svg {
+  width: 5mm;
+  height: 5mm;
+  flex: 0 0 5mm;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.foot .item .dot { fill: var(--gold); stroke: none; }
+
+/* ---------- chalk line art ---------- */
+
+.chalk {
+  position: absolute;
+  fill: none;
+  stroke: var(--cream);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}
+
+.art-whisk    { top: 2mm;   right: -1mm; width: 44mm;  opacity: 0.20; }
+.art-brownie  { top: 60mm;  right: -4mm; width: 52mm;  opacity: 0.22; }
+.art-cupcake  { top: 132mm; right: 4mm;  width: 40mm;  opacity: 0.22; }
+</style>
+</head>
+<body>
+<div class="board">
+
+  <!-- chalkboard grain -->
+  <div class="grain"></div>
+
+  <div class="frame"></div>
+
+  <div class="page">
+
+    <header class="head">
+      <svg class="logo" viewBox="0 0 909 552" role="img" aria-label="Velvet Oven"
+           xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="__LOGOPATH__"/>
+      </svg>
+      <span class="rule"></span>
+    </header>
+
+    <div class="split">
+
+      <div class="col-table">
+        <div class="category">
+          <h2>BROWNIES</h2>
+          <div class="colhead">500 gram</div>
+          <div class="colhead">1 kg</div>
+        </div>
+        <div class="rule-gold"></div>
+
+        <div class="rows">
+          <div class="row">
+            <div class="name">Wheat brownie</div>
+            <div class="price"><span class="cur">&#8377;</span>650</div>
+            <div class="price"><span class="cur">&#8377;</span>1300</div>
+          </div>
+          <div class="row">
+            <div class="name">Ragi brownie</div>
+            <div class="price"><span class="cur">&#8377;</span>700</div>
+            <div class="price"><span class="cur">&#8377;</span>1400</div>
+          </div>
+          <div class="row">
+            <div class="name">Karupukavuni brownie</div>
+            <div class="price"><span class="cur">&#8377;</span>750</div>
+            <div class="price"><span class="cur">&#8377;</span>1500</div>
+          </div>
+          <div class="row">
+            <div class="name">Multi millet</div>
+            <div class="price"><span class="cur">&#8377;</span>750</div>
+            <div class="price"><span class="cur">&#8377;</span>1500</div>
+          </div>
+          <div class="row">
+            <div class="name">Sathumavu brownie</div>
+            <div class="price"><span class="cur">&#8377;</span>780</div>
+            <div class="price"><span class="cur">&#8377;</span>1560</div>
+          </div>
+          <div class="row">
+            <div class="name">Thinai brownie</div>
+            <div class="price"><span class="cur">&#8377;</span>700</div>
+            <div class="price"><span class="cur">&#8377;</span>1400</div>
+          </div>
+        </div>
+
+        <div class="subhead">Add Ons</div>
+        <div class="rule-thin"></div>
+        <div class="rows">
+          <div class="row addon">
+            <div class="name">Dates brownie</div>
+            <div class="price">+ <span class="cur">&#8377;</span>80</div>
+          </div>
+          <div class="row addon">
+            <div class="name">Only nattu sakarai</div>
+            <div class="price">+ <span class="cur">&#8377;</span>50</div>
+          </div>
+          <div class="row addon">
+            <div class="name">Nuts loaded</div>
+            <div class="price">+ <span class="cur">&#8377;</span>80</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-art">
+
+        <!-- balloon whisk, tipped -->
+        <svg class="chalk art-whisk" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- handle -->
+          <path d="M120 86 L154 38"/>
+          <path d="M131 94 L165 46"/>
+          <path d="M154 38 L165 46"/>
+          <path d="M154 38 Q164 22 178 32 Q186 44 165 46"/>
+          <!-- collar -->
+          <path d="M116 82 L135 98"/>
+          <!-- wire cage -->
+          <path d="M120 86 Q60 92 44 148 Q38 172 66 180"/>
+          <path d="M124 90 Q76 106 62 172"/>
+          <path d="M128 94 Q94 124 66 180"/>
+          <path d="M131 94 Q112 134 74 178"/>
+          <path d="M66 180 Q54 186 60 174"/>
+        </svg>
+
+        <!-- stacked brownies on a plate -->
+        <svg class="chalk art-brownie" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 176 Q100 210 182 176"/>
+          <path d="M18 176 Q100 146 182 176"/>
+          <path d="M40 132 L100 110 L160 132 L100 154 Z"/>
+          <path d="M40 132 L40 152 L100 174 L100 154"/>
+          <path d="M160 132 L160 152 L100 174 L100 154"/>
+          <path d="M58 96 L100 80 L142 96 L100 112 Z"/>
+          <path d="M58 96 L58 114 L100 130 L100 112"/>
+          <path d="M142 96 L142 114 L100 130 L100 112"/>
+          <path d="M84 90 L92 94" />
+          <path d="M108 86 L116 90" />
+          <path d="M96 100 L104 104" />
+          <path d="M72 128 L80 132" />
+          <path d="M124 126 L132 130" />
+          <path d="M78 74 Q66 60 78 46 Q88 34 80 22"/>
+          <path d="M100 70 Q88 56 100 42 Q110 30 102 18"/>
+          <path d="M122 74 Q110 60 122 46 Q132 34 124 22"/>
+        </svg>
+
+        <!-- cupcake -->
+        <svg class="chalk art-cupcake" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- frosting swirl -->
+          <path d="M60 98 Q48 70 74 62 Q70 38 98 40 Q106 20 126 32 Q150 32 144 60 Q162 78 140 98"/>
+          <path d="M74 62 Q100 76 144 60"/>
+          <path d="M98 40 Q112 54 126 32"/>
+          <!-- cherry -->
+          <circle cx="112" cy="20" r="8"/>
+          <path d="M114 12 Q120 2 132 4"/>
+          <!-- liner -->
+          <path d="M56 98 Q100 110 144 98"/>
+          <path d="M58 100 L74 172 Q100 180 126 172 L142 100"/>
+          <path d="M78 104 L88 176"/>
+          <path d="M100 106 L100 179"/>
+          <path d="M122 104 L112 176"/>
+        </svg>
+
+      </div>
+    </div>
+
+    <footer class="foot">
+      <div class="fssai">FSSAI Lic. No. 22426076000802</div>
+      <div class="contact">
+        <div class="item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5.4"/>
+            <circle cx="12" cy="12" r="4.2"/>
+            <circle class="dot" cx="17.4" cy="6.6" r="1.25"/>
+          </svg>
+          velvet_oven_bakes
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18"/>
+            <path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/>
+          </svg>
+          www.velvetoven.co.in
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

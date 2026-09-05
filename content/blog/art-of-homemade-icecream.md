@@ -10,7 +10,7 @@ There's a world of difference between commercial ice cream and what comes out of
 
 ## Real Ingredients, Real Flavour
 
-We start with fresh cream, whole milk, and real sugar. Our flavours come from actual fruits, nuts, and spices — not artificial extracts. When we say "mango," we mean Alphonso mangoes hand-selected at peak ripeness.
+We start with fresh cream, whole milk, and real sugar. Our flavours come from actual fruits, nuts, and spices, not artificial extracts. When we say "mango," we mean Alphonso mangoes hand-selected at peak ripeness.
 
 ## The Churn
 
@@ -18,7 +18,7 @@ Commercial ice cream is pumped full of air (called "overrun") to increase volume
 
 ## Small Batches, Big Care
 
-We make each flavour in batches of no more than five litres. This lets us control every variable — temperature, timing, texture — ensuring consistency that mass production simply cannot match.
+We make each flavour in batches of no more than five litres. This lets us control every variable (temperature, timing, texture), ensuring consistency that mass production simply cannot match.
 
 ## Our Favourite Flavours
 
